@@ -1,0 +1,48 @@
+<!-- Header für das Dashboard -->
+<div id="header-dashboard" class="header">
+    <h1>Dashboard</h1>
+    <div class="header-buttons">
+        <button onclick="location.href='dashboard.html'">Dashboard</button>
+        <button onclick="location.href='anfragen.html'">Anfragen</button>
+        <button onclick="location.href='kalender.html'">Kalender</button>
+
+        <!-- Benachrichtigungs-Glocke mit Popup -->
+        <div class="notification" onclick="toggleNotificationPopup()">
+            <i class="fas fa-bell"></i>
+            <span class="badge" id="notificationBadge">3</span> <!-- Beispiel für das Badge -->
+        </div>
+    </div>
+</div>
+
+<!-- Popup für Benachrichtigungen -->
+<div id="notificationPopup" class="popup" style="display: none;">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h2>Benachrichtigungen</h2>
+            <button onclick="toggleNotificationPopup()" class="close-button">×</button>
+        </div>
+        <ul id="notificationList">
+            <!-- Benachrichtigungen werden hier dynamisch eingefügt -->
+        </ul>
+    </div>
+</div>
+
+
+
+<!-- Header für die Anfragenverwaltung -->
+<div id="header-anfragen" class="header" style="display: none;">
+    <h1>Anfragen Verwaltung</h1>
+    <div class="header-buttons">
+        <button onclick="location.href='dashboard.html'">Dashboard</button>
+        <button onclick="location.href='kalender.html'">Kalender</button>
+    </div>
+</div>
+
+<!-- Header für den Kalender -->
+<div id="header-kalender" class="header" style="display: none;">
+    <h1>Kalender</h1>
+    <div class="header-buttons">
+        <button onclick="location.href='dashboard.html'">Dashboard</button>
+        <button onclick="location.href='anfragen.html'">Anfragen</button>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender - Chanels Kunden Liste</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
+
+<!-- Script zum Laden des Headers -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch("header.html")
+            .then(response => {
+                if (!response.ok) throw new Error("Header konnte nicht geladen werden");
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
+
+                // Zeigt den passenden Header basierend auf der URL der aktuellen Seite an
+                const pageUrl = window.location.pathname;
+                document.getElementById("header-dashboard").style.display = pageUrl.includes("dashboard.html") ? "flex" : "none";
+                document.getElementById("header-anfragen").style.display = pageUrl.includes("anfragen.html") ? "flex" : "none";
+                document.getElementById("header-kalender").style.display = pageUrl.includes("kalender.html") ? "flex" : "none";
+            })
+            .catch(error => console.error("Fehler beim Laden des Headers:", error));
+    });
+</script>
+
+    
+</head>
+<body>
+    <div class="page">
+        <!-- Header Platzhalter -->
+        <div id="header-placeholder"></div>
+
+        <!-- Script zum Laden des Headers -->
+        <script>
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-placeholder").innerHTML = data;
+                });
+        </script>
+
+        <!-- Kalender-Container -->
+        <div id="calendar-container">
+            <div id="calendar"></div>
+        </div>
+
+        <!-- Modales Formular zum Erstellen und Bearbeiten von Terminen -->
+        <div id="eventModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeEventModal()">&times;</span>
+                <h2 id="modalTitle">Termin erstellen/bearbeiten</h2>
+                <form id="eventForm">
+                    <label for="vorname">Vorname:</label>
+                    <input type="text" id="vorname" name="vorname" required>
+
+                    <label for="nachname">Nachname:</label>
+                    <input type="text" id="nachname" name="nachname" required>
+
+                    <label for="telefonnummer">Telefonnummer:</label>
+                    <input type="tel" id="telefonnummer" name="telefonnummer" required>
+
+                    <label for="datum">Datum:</label>
+                    <input type="date" id="datum" name="datum" required>
+
+                    <label for="uhrzeit">Uhrzeit:</label>
+                    <input type="time" id="uhrzeit" name="uhrzeit" required>
+
+                    <label for="anmerkung">Anmerkung:</label>
+                    <textarea id="anmerkung" name="anmerkung" rows="4"></textarea>
+
+                    <div class="modal-buttons">
+                        <button type="button" onclick="saveEvent()">Speichern</button>
+                        <button type="button" onclick="deleteEvent()" class="delete-button">Löschen</button>
+                        <button type="button" onclick="closeEventModal()" class="close-button-secondary">Schließen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <script src="calender.js"></script>
+</body>
+</html>

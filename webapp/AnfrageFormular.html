@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termin Anfrage</title>
+    <style>
+        /* Grundlegendes, responsives Styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9em;
+            margin-bottom: 0.5em;
+            color: #333;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form id="anfrageForm">
+        <h1>Termin Anfrage</h1>
+
+        <label for="vorname">Vorname:</label>
+        <input type="text" id="vorname" name="vorname" required>
+
+        <label for="nachname">Nachname:</label>
+        <input type="text" id="nachname" name="nachname" required>
+
+        <label for="modell">Dienstleistung:</label>
+        <select id="modell" name="modell" required>
+            <option value="">Bitte wählen</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+
+        <label for="telefonnummer">Telefonnummer:</label>
+        <input type="tel" id="telefonnummer" name="telefonnummer" required>
+
+        <label for="anmerkung">Anmerkung:</label>
+        <textarea id="anmerkung" name="anmerkung" rows="4"></textarea>
+
+        <button type="submit">Anfrage senden</button>
+    </form>
+
+    <script src="anfrage.js"></script>
+</body>
+</html>

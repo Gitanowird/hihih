@@ -1,0 +1,328 @@
+/* Allgemeine Stile */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+}
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header-Stile */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #007acc;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: #fff;
+}
+
+/* Einheitlicher Header-Button-Stil */
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttons button {
+    background-color: #ffffff;
+    color: #007acc;
+    padding: 10px 20px;
+    border: 1px solid #007acc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-buttons button:hover {
+    background-color: #005a8c;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.header-buttons button:active {
+    background-color: #004c73;
+    color: #ffffff;
+    transform: scale(1);
+}
+
+/* Benachrichtigungssymbol */
+.notification {
+    position: relative;
+    cursor: pointer;
+}
+
+.notification i {
+    font-size: 1.5em;
+    color: white;
+}
+
+.notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 0.8em;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-button {
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+
+/* Anfrage-Karten Layout */
+.anfrage-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.anfrage-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.anfrage-item p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.anfrage-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.anfrage-item input {
+    padding: 8px;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Anfrage-Buttons */
+.anfrage-item .action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.anfrage-item button {
+    flex: 1;
+    padding: 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Annehmen-Button mit deutlicher Farbe */
+.anfrage-item button.accept {
+    background-color: #28a745;
+}
+
+.anfrage-item button.accept:hover {
+    background-color: #218838;
+}
+
+.anfrage-item button.delete {
+    background-color: #e74c3c;
+}
+
+.anfrage-item button.delete:hover {
+    background-color: #c0392b;
+}
+
+
+/* Kalender-Container */
+#calendar-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal-Stile */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: left;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Formular-Labels und Eingabefelder */
+.modal-content label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Haupt-Buttons im Modal */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-buttons .delete-button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+}
+
+.modal-buttons .delete-button:hover {
+    background-color: #c0392b;
+}
+
+.modal-buttons .close-button-secondary {
+    background-color: #aaa;
+    color: #fff;
+    border: none;
+}
+
+.modal-buttons .close-button-secondary:hover {
+    background-color: #888;
+}
+
+.modal-buttons button:first-child {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+}
+
+.modal-buttons button:first-child:hover {
+    background-color: #005a8c;
+}
+
+/* Mobile Stile */
+@media (max-width: 600px) {
+    .header-buttons button,
+    .nav-buttons button,
+    .anfrage-item button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .termin-item {
+        padding: 10px;
+    }
+
+    .popup-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+}

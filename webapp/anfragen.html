@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anfragen Verwaltung</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Script zum Laden des Headers -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("header.html")
+                .then(response => {
+                    if (!response.ok) throw new Error("Header konnte nicht geladen werden");
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById("header-placeholder").innerHTML = data;
+
+                    // Zeigt den passenden Header basierend auf der URL der aktuellen Seite an
+                    const pageUrl = window.location.pathname;
+                    document.getElementById("header-dashboard").style.display = pageUrl.includes("dashboard.html") ? "flex" : "none";
+                    document.getElementById("header-anfragen").style.display = pageUrl.includes("anfragen.html") ? "flex" : "none";
+                    document.getElementById("header-kalender").style.display = pageUrl.includes("kalender.html") ? "flex" : "none";
+                })
+                .catch(error => console.error("Fehler beim Laden des Headers:", error));
+        });
+    </script>
+</head>
+<body>
+    <div class="page">
+        <!-- Header Platzhalter -->
+        <div id="header-placeholder"></div>
+
+        <!-- Anfragen-Inhalt -->
+        <div class="container">
+            <h2 class="section-title">Eingehende Anfragen</h2>
+            <div class="anfrage-container" id="anfragenContainer">
+                <!-- Anfragen werden hier per JavaScript geladen -->
+            </div>
+        </div>
+    </div>
+
+    <script src="anfrageVerwaltung.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header-Platzhalter -->
+        <div id="header-placeholder"></div>
+
+        <!-- Script zum Laden des Headers -->
+  <!-- Script zum Laden des Headers -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch("header.html")
+            .then(response => {
+                if (!response.ok) throw new Error("Header konnte nicht geladen werden");
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
+
+                // Zeigt den passenden Header basierend auf der URL der aktuellen Seite an
+                const pageUrl = window.location.pathname;
+                document.getElementById("header-dashboard").style.display = pageUrl.includes("dashboard.html") ? "flex" : "none";
+                document.getElementById("header-anfragen").style.display = pageUrl.includes("anfragen.html") ? "flex" : "none";
+                document.getElementById("header-kalender").style.display = pageUrl.includes("kalender.html") ? "flex" : "none";
+            })
+            .catch(error => console.error("Fehler beim Laden des Headers:", error));
+    });
+</script>
+
+
+        <!-- Heutige Termine -->
+        <div class="container">
+            <h2 class="section-title">
+                <span class="arrow" onclick="changeDay(-1)">&#9664;</span>
+                Termine für <span id="datumDisplay"></span>
+                <span class="arrow" onclick="changeDay(1)">&#9654;</span>
+            </h2>
+            <ul class="termin-liste" id="terminListe">
+                <!-- Heutige Termine werden hier per JavaScript geladen -->
+            </ul>
+        </div>
+
+        <!-- Popup für Benachrichtigungen -->
+        <div id="notificationPopup" class="popup" style="display: none;">
+            <div class="popup-content">
+                <div class="popup-header">
+                    <h2>Benachrichtigungen</h2>
+                    <button onclick="togglePopup()" class="close-button">×</button>
+                </div>
+                <ul id="notificationList">
+                    <!-- Benachrichtigungen werden hier dynamisch eingefügt -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
